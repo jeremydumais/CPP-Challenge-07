@@ -1,14 +1,13 @@
-#ifndef DIVISOR_H
-#define DIVISOR_H
+#ifndef ABUNDANT_H
+#define ABUNDANT_H
 
 #include <vector>
 
 class abundantHelper
 {
     public:
-        static std::vector<unsigned int> getDivisors(unsigned int p_number);
-        static unsigned int getAbundance(const std::vector<unsigned int> &p_divisorVec);
+        static unsigned int getAbundance(unsigned int p_number);
     private:
 };
 
-#endif //DIVISOR_H
+#endif //ABUNDANT_H

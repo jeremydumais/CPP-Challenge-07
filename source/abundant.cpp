@@ -3,20 +3,22 @@
 
 using namespace std;
 
-std::vector<unsigned int> abundantHelper::getDivisors(unsigned int p_number)
+unsigned int abundantHelper::getAbundance(unsigned int p_number)
 {
-    std::vector<unsigned int> retVal;
+    unsigned int retVal {0};
     if (p_number==1)
-        retVal.push_back(1);
-    for(unsigned int i=1;i<p_number;i++)
+        retVal = 1;
+    else
     {
-        if (p_number % i == 0)
-            retVal.push_back(i);
+        for(unsigned int i=1;i<=sqrt(p_number);i++)
+        {
+            if (p_number % i == 0)
+            {
+                retVal+=i;
+                if (p_number/i != i && i != 1)
+                    retVal+=(p_number/i);
+            }
+        }
     }
     return retVal;
-}
-
-unsigned int abundantHelper::getAbundance(const std::vector<unsigned int> &p_divisorVec)
-{
-    return accumulate(p_divisorVec.begin(), p_divisorVec.end(), 0);
 }
